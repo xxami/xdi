@@ -1,0 +1,71 @@
+version: '2'
+
+vars:
+  cc: cc
+  cflags: -std=c18 -pedantic -Wall -fstack-protector-strong -O2
+
+tasks:
+
+  build:
+    silent: true
+    cmds:
+      - |
+        set -e
+        csources=""
+        for file in src/*.c; do
+          if test -f $file; then
+            csources+="$file "
+          fi
+        done
+        for file in src/*/*.c; do
+          if test -f $file; then
+            csources+="$file " 
+          fi
+        done
+        if [[ ! -z $csources ]] then
+          echo "compiling..."
+          echo {{.cc}} {{.cflags}} -c $csources
+          {{.cc}} {{.cflags}} -c $csources
+        else
+          echo "compile error... no c sources found"
+        fi
+      - task: link
+    sources:
+      - ./src/*.c
+      - ./src/**/*.c
+    generates:
+      - xdi{{exeExt}}
+
+  link:
+    silent: true
+    cmds:
+      - |
+        set -e
+        objs=""
+        for file in *.o; do
+          if test -f $file; then
+            objs+="$file "
+          fi
+        done
+        if [[ ! -z "$objs" ]] then
+          echo "linking..."
+          echo {{.cc }} {{.cflags}} -o xdi{{exeExt}} $objs
+          {{.cc}} {{.cflags}} -o xdi{{exeExt}} $objs
+          rm *.o
+        else
+          echo "link error... no obj files found"
+        fi
+
+  run:
+    cmds:
+      - task: build
+      - ./xdi{{exeExt}}
+
+  clean:
+    ignore_error: true
+    silent: true
+    cmds:
+      - rm xdi{{exeExt}}
+      - rm *.exe
+      - rm *.dll
+      - rm *.o
