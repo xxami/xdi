@@ -5,7 +5,7 @@
 - meson: https://mesonbuild.com/
 - ninja: https://ninja-build.org/
 
-optionally:
+## optional
 - just: https://github.com/casey/just
 
 ```sh
@@ -18,3 +18,5 @@ just run
 # run tests
 just test
 ```
+
+*(if not using just build using standard meson commands)*
