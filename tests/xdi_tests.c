@@ -1,5 +1,5 @@
-#include <cheat.h>
+#include <exotic/cester.h>
 
-CHEAT_TEST(test_a_thing,
-  cheat_assert(1==1);
+CESTER_TEST(test_one, inst,
+    cester_assert_equal(1, 1);
 )

@@ -44,8 +44,8 @@ test_src = [
 ]
 
 test_includes = [
-  include_directories('./src'),
-  include_directories('./src/cheat')
+  include_directories('src'),
+  include_directories('src/libcester')
 ]
 
 ##################
@@ -60,5 +60,5 @@ executable(
 executable(
   'xdi_tests',
   sources: exe_src + test_src,
-  include_directories: test_includes,
+  include_directories: test_includes + exe_includes,
   dependencies: libpe)
