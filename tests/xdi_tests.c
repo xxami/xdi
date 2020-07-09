@@ -1,5 +1,5 @@
 #include <cheat.h>
 
-CHEAT_TEST(success,
-  cheat_assert(true);
+CHEAT_TEST(test_a_thing,
+  cheat_assert(1==1);
 )
