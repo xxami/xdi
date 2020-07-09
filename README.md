@@ -1,12 +1,15 @@
 # xdi
 
 ```sh
-# compile & link src/*.c + src/*/*.c
-task build
+# create meson build directory
+# one time only
+meson build
 
-# compile & link (if needed) + run
-task run
+# build
+cd build
+ninja
 
-# remove non source files
-task clean
+# run
+./xdi
+./xdi_tests
 ```

@@ -6,3 +6,5 @@ htmldocs/
 *.o
 xdi
 !xdi/
+build/
+builddir/
