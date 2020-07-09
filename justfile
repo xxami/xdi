@@ -1,5 +1,7 @@
 
 setup:
+  git submodule init
+  git submodule update
   meson builddir
   cd src/libpe && make
 

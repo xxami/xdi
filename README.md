@@ -1,26 +1,18 @@
 # xdi
 
+## build reqs
+- modern c compiler (ie. gcc 10+)
+- meson: https://mesonbuild.com/
+- ninja: https://ninja-build.org/
+- just: https://github.com/casey/just
+
 ```sh
-# install libpe
-git submodule init
-git submodule update
-
-# build libpe
-cd src/libpe
-make
-
-# return to base directory
-cd ../..
-
-# create meson build directory
-# one time only
-meson build
-
-# build
-cd build
-ninja
-
+# prepare submodules & dependencies
+just setup
+# build with meson/ninja
+just build
 # run
-./xdi
-./xdi_tests
+just run
+# run tests
+just test
 ```
