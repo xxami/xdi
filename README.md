@@ -19,4 +19,4 @@ just run
 just test
 ```
 
-*(if not using just build using standard meson commands)*
+*(if not using just, build using standard meson commands)*
