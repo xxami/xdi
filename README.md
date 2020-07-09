@@ -1,4 +1,4 @@
-# xdi
+## xdi
 
 ## build reqs
 - modern c compiler (ie. gcc 10+)
