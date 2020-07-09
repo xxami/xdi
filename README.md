@@ -4,6 +4,8 @@
 - modern c compiler (ie. gcc 10+)
 - meson: https://mesonbuild.com/
 - ninja: https://ninja-build.org/
+
+optionally:
 - just: https://github.com/casey/just
 
 ```sh
