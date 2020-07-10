@@ -23,6 +23,7 @@ endforeach
 # dependencies
 
 libpe = cc.find_library('libpe', dirs: meson.current_source_dir() + '/src/libpe')
+m = cc.find_library('m', required: false)
 
 ############
 # xdi config
@@ -33,7 +34,7 @@ exe_src = [
 ]
 
 exe_includes = [
-  include_directories('src/libpe/include/libpe')
+  include_directories('src/libpe/include')
 ]
 
 ##################
@@ -55,10 +56,10 @@ executable(
   'xdi',
   sources: exe_entry_point + exe_src,
   include_directories: exe_includes,
-  dependencies: libpe)
+  dependencies: [libpe, m])
 
 executable(
   'xdi_tests',
   sources: exe_src + test_src,
   include_directories: test_includes + exe_includes,
-  dependencies: libpe)
+  dependencies: [libpe, m])
