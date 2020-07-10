@@ -15,6 +15,15 @@ just setup
 just build
 # run
 just run
+```
+
+## testing
+```sh
+# cross compile w64 test applications
+cd test_applications
+just build-w64
+cd ..
+
 # run tests
 just test
 ```
