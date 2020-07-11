@@ -1,6 +1,8 @@
 
 #include <stdio.h>
 #include <libpe/pe.h>
+#include <klib/kvec.h>
+#include <disasm/disasm.h>
 
 const char* hello_world = "test_applications/hello-world.exe";
 

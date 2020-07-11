@@ -34,6 +34,7 @@ exe_src = [
 ]
 
 exe_includes = [
+  include_directories('src'),
   include_directories('src/libpe/include')
 ]
 
