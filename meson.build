@@ -46,7 +46,7 @@ test_src = [
 
 test_includes = [
   include_directories('src'),
-  include_directories('src/libcester')
+  include_directories('tests/libcester')
 ]
 
 ##################

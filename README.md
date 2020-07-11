@@ -8,6 +8,10 @@
 ## optional
 - just: https://github.com/casey/just
 
+## dependencies
+- [libpe](https://github.com/merces/libpe) (included in src/libpe)
+- [libcester](https://github.com/exoticlibraries/libcester) (included in tests/libcester)
+
 ```sh
 # prepare submodules & dependencies
 just setup
