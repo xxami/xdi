@@ -31,6 +31,7 @@ m = cc.find_library('m', required: false)
 exe_entry_point = ['src/xdi.c']
 
 exe_src = [
+  'src/disasm/disasm.c'
 ]
 
 exe_includes = [

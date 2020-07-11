@@ -7,24 +7,10 @@
 const char* hello_world = "test_applications/hello-world.exe";
 
 int main(void) {
-  pe_ctx_t ctx;
-  pe_err_e err = pe_load_file(&ctx, hello_world);
-  if (err != LIBPE_E_OK) {
-    pe_error_print(stderr, err);
+  disasm_file_t f;
+  disasm_file_err err = load_win64(&f, hello_world);
+  if (err != disasm_ok)
     return 1;
-  }
-
-  err = pe_parse(&ctx);
-  if (err != LIBPE_E_OK) {
-    pe_error_print(stderr, err);
-    return 1;
-  }
-
-  if (!pe_is_pe(&ctx)) {
-    printf("Unexpected error parsing PE file");
-    return 1;
-  }
-
-  printf("Entrypoint: %#lx\n", ctx.pe.entrypoint);
+  printf("Begin disassemble\n");
 	return 0;
 }
