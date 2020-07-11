@@ -12,5 +12,5 @@ int main(void) {
   if (err != disasm_ok)
     return 1;
   printf("Begin disassemble\n");
-	return 0;
+  return 0;
 }
