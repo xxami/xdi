@@ -25,9 +25,9 @@ just run
 ## testing
 ```sh
 # cross compile w64 test applications
-cd test_applications
+cd tests/test_applications
 just build-w64
-cd ..
+cd ../..
 
 # run tests
 just test

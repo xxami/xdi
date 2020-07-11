@@ -4,7 +4,7 @@
 #include <klib/kvec.h>
 #include <disasm/disasm.h>
 
-const char* hello_world = "test_applications/hello-world.exe";
+const char* hello_world = "tests/test_applications/hello-world.exe";
 
 int main(void) {
   disasm_file_t f;
