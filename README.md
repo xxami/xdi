@@ -1,4 +1,5 @@
 ## xdi
+Experimental reversing toolset for translating PE > ELF binaries `C` `libpe`
 
 ## build reqs
 - modern c compiler (ie. gcc 10+)
