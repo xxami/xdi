@@ -12,8 +12,7 @@ int main(void) {
   if (err != disasm_ok)
     return 1;
   printf("Begin disassemble\n");
-  disasm_instruction_t ins;
-  err = disasm_step_once(&f, &ins);
+  err = disasm_step_once(&f);
   if (err != disasm_ok)
     return 1;
   printf("Successfully stepped once\n");

@@ -10,6 +10,7 @@ typedef enum disasm_err {
   disasm_invalid_format,
   disasm_seek_err,
   disasm_eof_err,
+  disasm_stream_closed,
   disasm_ok
 } disasm_err;
 
@@ -31,4 +32,4 @@ typedef struct {
 disasm_err load_win64(disasm_file_t *f, const char *file_name);
 
 // parse the next instruction starting at code entry point
-disasm_err disasm_step_once(disasm_file_t *f, disasm_instruction_t *ins);
+disasm_err disasm_step_once(disasm_file_t *f);
