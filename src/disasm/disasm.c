@@ -1,7 +1,9 @@
 
 #include <disasm/disasm.h>
 
-disasm_err load_win64(disasm_file_t *f, const char *file_name) {
+disasm_err load_win64_pe(disasm_file_t *f, const char *file_name) {
+  f->eof = 0;
+  f->ins_offset = 0;
   pe_options_e options = LIBPE_OPT_NOCLOSE_FD;
   pe_err_e err = pe_load_file_ext(&f->pef, file_name, (1 << 0));
   if (err != LIBPE_E_OK) {
@@ -37,9 +39,10 @@ disasm_err load_win64(disasm_file_t *f, const char *file_name) {
   return disasm_ok;
 }
 
-disasm_err disasm_step_once(disasm_file_t *f) {
-  //if (f->eof)
-  //  return disasm_eof_err;
+disasm_err disasm_step(disasm_file_t *f, disasm_instruction_t *ins) {
+  ins->opcode = x64_op_undefined;
+  if (f->eof)
+    return disasm_eof_err;
   char c[15];
   for (int i = 0; i < 15; i++) {
     c[i] = fgetc(f->pef.stream);
